@@ -2,13 +2,13 @@
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.node.json"
+      "path": "./app/config/tsconfig.node.json"
     },
     {
-      "path": "./app/tsconfig.app.json"
+      "path": "./app/config/tsconfig.app.json"
     },
     {
-      "path": "./app/tsconfig.vitest.json"
+      "path": "./app/config/tsconfig.vitest.json"
     }
   ]
 }

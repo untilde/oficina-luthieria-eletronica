@@ -1,6 +1,7 @@
 <script lang="ts">
 // Custom slide title used by the menu and header
 export const slideTitle = 'Mozzi — Introdução'
+export default {}
 </script>
 
 <template>

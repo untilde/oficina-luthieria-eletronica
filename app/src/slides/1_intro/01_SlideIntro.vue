@@ -1,6 +1,8 @@
+<script setup lang="ts"></script>
 <script lang="ts">
 // Custom slide title used by the menu and header
 export const slideTitle = 'Título'
+export default {}
 </script>
 
 <template>

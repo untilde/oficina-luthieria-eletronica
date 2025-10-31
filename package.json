@@ -10,10 +10,10 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test:unit": "vitest --config app/config/vitest.config.ts",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix --cache",
+    "lint": "eslint --config app/config/eslint.config.ts app/src --fix --cache",
     "format": "prettier --write app/src/"
   },
   "dependencies": {

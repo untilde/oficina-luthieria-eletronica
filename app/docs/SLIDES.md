@@ -14,7 +14,8 @@ slides/
 
 O registry.ts automaticamente atualiza a ordem dos slides e headers no menu (app/src/slides/registry.ts):
 
-```1. Intro
+```text
+1. Intro
 1.1 Slide name
 
 2. Breve História...
