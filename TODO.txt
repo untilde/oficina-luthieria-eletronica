@@ -1,0 +1,4 @@
+- Preparar texto-base dos slides
+- Adaptar alguns sketches do circles-signals para Vue components (ex: app/circles-signals/sine_wave_properties.html)
+- Usar sketches interativos onde necessário
+- Inserir sketches do Mozzi em blocos copiáveis nos slides
