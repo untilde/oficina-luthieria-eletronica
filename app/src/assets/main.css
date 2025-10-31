@@ -67,3 +67,18 @@ body {
 .slide-p li {
   @apply mb-2 leading-relaxed text-left;
 }
+
+/* D3 axis styling (ported from Circles & Signals style.css) */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+
+.gridAxis path,
+.gridAxis line {
+  fill: none;
+  stroke: #ddd;
+  shape-rendering: crispEdges;
+}
