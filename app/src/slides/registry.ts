@@ -1,10 +1,10 @@
 import type { Component } from 'vue'
 
-// Auto-discover all slide components under this folder
+// Descobre automaticamente os slides na pasta abaixo
 const modules = import.meta.glob('./**/*.vue', { eager: true })
 
-// Optional manual section name overrides: key by folder name (e.g., '4_synth_struct')
-// Example: '4_synth_struct' -> 'Estrutura básica de um Sintetizador'
+// Define manualmente o nome das seções
+// Exemplo: '4_synth_struct' -> 'Estrutura básica de um Sintetizador'
 const sectionNameOverrides: Record<string, string> = {
   '1_intro': 'Introdução',
   '2_synth_hist': 'Breve História dos Sintetizadores',
@@ -22,17 +22,17 @@ function titleCase(s: string) {
 }
 
 function extractInfo(path: string) {
-  // Example: ./1_intro/SlideIntro.vue
+  // Ex: ./1_intro/SlideIntro.vue
   const parts = path.split('/')
   const folder = parts[1] || ''
   const file = (parts[parts.length - 1] ?? '').replace('.vue', '')
 
-  // Section title: strip numeric prefix and prettify
+  // Remove o prefixo do nome da seção, caso determinado automaticamente
   const section = folder.replace(/^\d+_/, '').replace(/[_-]/g, ' ')
   const sectionTitle = titleCase(section)
 
-  // Slide title: remove leading "Slide" and split camel case
-  const fileCore = file.replace(/^\d+_/, '') // strip numeric prefix like 01_
+  // Faz o mesmo para nomes de slides, só por garantia
+  const fileCore = file.replace(/^\d+_/, '')
   const slideTitle = titleCase(
     fileCore
       .replace(/^Slide/i, '')
@@ -72,10 +72,10 @@ const slidesData = Object.entries(modules)
       component: (m as { default: Component }).default,
     }
   })
-  // Sort with natural order so 1_*, 2_* come before 10_* correctly
+  // Numeração
   .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true }))
 
-// Group by section (folder)
+// Agrupamento por seção (pasta)
 const sections: SectionDef[] = []
 for (const slide of slidesData) {
   let section = sections.find((s) => s.title === slide.sectionTitle)
@@ -86,7 +86,7 @@ for (const slide of slidesData) {
   section.slides.push({ title: slide.title, component: slide.component })
 }
 
-// Flatten for linear navigation
+// Navegação linear (1,2,3,4,5,6, etc)
 export const orderedSlides: SlideDef[] = sections.flatMap((s) => s.slides)
 
 export { sections }
