@@ -36,6 +36,7 @@ app/
 
 ## Estrutura dos slides
 ```
+app/src/slides/
 ├── 1_intro
 │   ├── 01_SlideIntro.vue
 │   ├── 02_SlideAbout.vue
